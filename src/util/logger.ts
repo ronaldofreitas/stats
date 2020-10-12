@@ -7,7 +7,7 @@ const myFormat = printf(({ level, message, label, timestamp }) => {
 
 const options: winston.LoggerOptions = {
     format: combine(
-        label({ label: 'processor' }),
+        label({ label: 'stats' }),
         timestamp(),
         myFormat
     ),

@@ -2,20 +2,24 @@ import mongoose, { Document, Model, Schema } from 'mongoose';
 
 interface IStats {
   _id?: string;
-  ep: string;// endpoint
-  me: string;// method
-  sc: number;// status code
-  lt: number;// latency
-  rt: number;// total requests
+  endpoint: string;
+  metodo: string;
+  statusCode: number;
+  latenciaMedia: number;
+  totalRequests: number;
+  dataAninhada: string;// data aninhada '2020091211' para facilitar a busca
+  periodo: Date;
 }
 
 const StatsSchema = new Schema(
   {
-    ep: { type: String, required: true },
-    me: { type: String, required: true },
-    sc: { type: Number, required: true },
-    lt: { type: Number, required: true },
-    rt: { type: Number, required: true }
+    endpoint: { type: String, required: true },
+    metodo: { type: String, required: true },
+    statusCode: { type: Number, required: true },
+    latenciaMedia: { type: Number, required: true },
+    totalRequests: { type: Number, required: true },
+    dataAninhada: { type: String, required: true },
+    periodo: { type: Date, required: true }
   }
 );
 
