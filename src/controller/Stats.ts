@@ -22,7 +22,7 @@ interface PublisherMessage {
 }
 
 export class StatsController extends Consumer {
-    
+
     constructor (amqpConn: Connection, prepareFn: createChannelCallback, iniConf: configInit) {
         super(amqpConn, prepareFn, false, logger)
     }

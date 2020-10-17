@@ -21,7 +21,6 @@ export class Application {
     }
 
     private async startUp(iniConf: configInit): Promise<void> {
-
         const amqpService = new AmqpService(logger)
         amqpService.shouldRecreateConnection(true)
         const amqpCon = amqpService.connect()
@@ -35,7 +34,7 @@ export class Application {
                 await ch.assertQueue(iniConf.rabbitQueueName, { durable: false });
                 await ch.assertExchange(iniConf.rabbitExchangeName, iniConf.rabbitExchangeType);
                 await ch.bindQueue(iniConf.rabbitQueueName, iniConf.rabbitExchangeName, iniConf.rabbitRoutKeyName);
-                await ch.prefetch(5);// quantidade de mensagem em 'espera' antes do ACK do consumer
+                await ch.prefetch(30);// quantidade limite de mensagem em 'espera' antes do ACK do consumer
                 logger.info('[AMQP_CONSUMER_OK]')
             }
 
