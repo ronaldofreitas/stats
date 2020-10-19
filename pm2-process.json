@@ -1,0 +1,9 @@
+{
+    "script": "dist/index.js",
+    "watch": true,
+    "ignore_watch": ["log"],
+    "watch_options": {
+        "followSymlinks": false
+    },
+    "name": "stats-ms-pm2"
+}
