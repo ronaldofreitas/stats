@@ -16,7 +16,8 @@ export class Application {
             logger.info('[DATABASE_CONNECT_SUCCESS]')
         } catch (error) {
             logger.error('[DATABASE_CONNECT_ERROR]')
-            throw new Error('Database not connected')
+            throw new Error(error)
+            //throw new Error('Database not connected')
         }
     }
 
